@@ -1,0 +1,65 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+long long m, n, i, j, k, numere;
+float mat[1001][1001], suma, medie[1001];
+
+int main()
+{
+    
+    cin >> n;
+    
+    for(i = 1; i <= n; i ++)
+    {
+        for(j = 1; j <= n; j ++)
+        {
+            cin >> mat[i][j];
+        }
+    }
+    
+    for(i = 1; i <= n; i ++)
+    {
+        numere = 0;
+        suma = 0;
+        
+        for(j = 1; j <= n; j ++)
+        {
+            suma += mat[j][i];
+            numere ++;
+        }
+        
+        medie[i] = suma / numere;
+    }
+
+    for(i = 1; i <= n / 2; i ++)
+    {
+        for(j = 1; j <= n; j ++)
+        {
+            cout << mat[i][j] << ' ';
+        }
+        
+        cout << '\n';
+    }
+    
+    for(j = 1; j <= n; j ++)
+    {
+        cout << medie[j] << ' ';
+    }
+    
+    cout << '\n';
+    
+    for(i = n / 2 + 1; i <= n; i ++)
+    {
+        for(j = 1; j <= n; j ++)
+        {
+            cout << mat[i][j] << ' ';
+        }
+        
+        cout << '\n';
+    }
+    
+    cout << '\n';
+    
+    return 0;
+}
